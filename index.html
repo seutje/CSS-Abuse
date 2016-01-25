@@ -41,18 +41,71 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>CSS Abuse</h1>
+					<h3>Cataclysmically Sinister Styles</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Offerings made by <a href="https://github.com/seutje">@seutje</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<h2>Mandatory introduction</h2>
+					<p>Who am I?</p>
+					<ul>
+						<li>Steve De Jonghe</li>
+						<li>~15 years of experience</li>
+						<li><s>Lead</s> 1337 Frontend Developer @ <a href="http://wunderkraut.be">Wunderkraut Belgium</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Table of contents</h2>
+					<ul>
+						<li class="fragment">Sneaky tricks to piss off support engineers.
+							<ul>
+								<li class="fragment">Gordian knot level selectors.</li>
+								<li class="fragment">Default or implied properties.</li>
+								<li class="fragment">All the pseudos!</li>
+							</ul>
+						</li>
+						<li class="fragment">Downright malicious practices.
+							<ul>
+								<li class="fragment">Hiding or replacing content.</li>
+								<li class="fragment">Brute-force sensitive data.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Think of the children!</h2>
+						<h3>Pissing off posterity for beginners.</h3>
+					</section>
+					<section>
+						<h2>Roll deep!</h2>
+						<p>Why write this:</p>
+						<pre><code class="css" data-trim contenteditable>
+.foo:nth-child(2n+1) { clear: both; }
+						</code></pre>
+						<p>When you could write this:</p>
+						<pre><code class="css" data-trim contenteditable>
+.foo:first-child { /* first */
+	+ .foo + .foo { /* third */
+		&, & + .foo + .foo { /* fifth */
+			&, & + .foo + .foo { /* seventh */
+				&, & + .foo + .foo { /* ninth */
+					clear: both;
+}}}}}
+/* compiles to: */
+.foo:first-child+.foo+.foo,
+.foo:first-child+.foo+.foo+.foo+.foo,
+.foo:first-child+.foo+.foo+.foo+.foo+.foo+.foo,
+.foo:first-child+.foo+.foo+.foo+.foo+.foo+.foo+.foo+.foo {
+	clear: both;
+}
+						</code></pre>
+					</section>
 				</section>
 
 				<!-- Example of nested vertical slides -->
