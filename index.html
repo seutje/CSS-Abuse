@@ -86,9 +86,31 @@
 						<h2>Roll deep!</h2>
 						<p>Why write this:</p>
 						<pre><code class="css" data-trim contenteditable>
-.foo:nth-child(2n+1) { clear: both; }
+.foo:nth-child(10) { clear: both; }
 						</code></pre>
 						<p>When you could write this:</p>
+						<pre><code class="css" data-trim contenteditable>
+.foo:first-child { /* first */
+	+ .foo + .foo { /* third */
+		+ .foo + .foo { /* fifth */
+			+ .foo + .foo { /* seventh */
+				+ .foo + .foo { /* ninth */
+					+ .foo { /* tenth */
+						clear: both;
+}}}}}}
+/* compiles to: */
+.foo:first-child + .foo+.foo+.foo+.foo+.foo+.foo+.foo+.foo+.foo {
+	clear: both;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Roll deep!</h2>
+						<p>Why stop there?</p>
+						<pre><code class="css" data-trim contenteditable>
+.foo:nth-child(2n+1) { clear: both; }
+						</code></pre>
+						<p>We can do <s>better</s> worse!</p>
 						<pre><code class="css" data-trim contenteditable>
 .foo:first-child { /* first */
 	+ .foo + .foo { /* third */
@@ -98,12 +120,31 @@
 					clear: both;
 }}}}}
 /* compiles to: */
-.foo:first-child+.foo+.foo,
-.foo:first-child+.foo+.foo+.foo+.foo,
-.foo:first-child+.foo+.foo+.foo+.foo+.foo+.foo,
-.foo:first-child+.foo+.foo+.foo+.foo+.foo+.foo+.foo+.foo {
-	clear: both;
+.foo:first-child + .foo+.foo,
+.foo:first-child + .foo+.foo+.foo+.foo,
+.foo:first-child + .foo+.foo+.foo+.foo+.foo+.foo,
+.foo:first-child + .foo+.foo+.foo+.foo+.foo+.foo+.foo+.foo {
+	clear: both; /* works in IE8 though! \o/ /*
 }
+						</code></pre>
+					</section>
+					<section>
+						<h2>Let's get convoluted!</h2>
+						<p>How deep does the rabit hole go?</p>
+						<pre><code class="css" data-trim contenteditable>
+.foo {
+	.bar & {
+		.baz {
+			.pee & {
+				& .poo {
+					lol: WAT;
+				}
+			}
+		}
+	}
+}
+/* Compiles to */
+.pee .bar .foo .baz .poo { lol: WAT; }
 						</code></pre>
 					</section>
 				</section>
