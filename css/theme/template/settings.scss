@@ -39,5 +39,6 @@ $selectionColor: #fff;
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
 @mixin bodyBackground() {
-	background: $backgroundColor;
+	background: $backgroundColor url('http://wunderkraut.be/themes/custom/kraut/logo.svg') 20px 20px no-repeat;
+	background-size: 180px 43px;
 }
