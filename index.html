@@ -57,10 +57,32 @@
           <div><img src="http://www.gravatar.com/avatar/ca405aac9991d43459b8bbd8b1c64c31.png?size=200" /></div>
           <ul>
             <li>Steve De Jonghe (<a href="https://www.google.com/search?q=seutje">@seutje</a>)</li>
-            <li>~15 years of making text bold</li>
+            <li>~15 years of making text bold (literally half my life)</li>
             <li><s>Lead</s> 1337 Frontend Developer @ <a href="http://wunderkraut.be">Wunderkraut Belgium</a></li>
             <li>Not a woman (sorry)</li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Brief history of bold text.</h2>
+          <p><img height="200" width="200" src="/images/programming.gif" alt="Programming" /></p>
+
+            <div class="fragment"><pre><code class="html" data-trim contenteditable>
+// good old days
+<b>bold yo!</b>
+
+// some progress
+<font style="font-weight: bold;">bold yo!</font>
+
+// some more progress
+<p class="text-bold">bold yo!</p>
+<style>.text-bold { font-weight: bold; }</style>
+
+// where we are now
+<whatever class="text__important">bold yo!</whatever>
+<link rel="stylesheet" src="whatever.css">
+            </code></pre></div>
+
         </section>
 
         <section>
@@ -330,6 +352,19 @@
   content: '💩';
 }
             </code></pre>
+          </section>
+
+          <section>
+            <h2>Speaking of things we don't need in the spec...</h2>
+            <pre><code class="css" data-trim contenteditable>
+.trump { color: red !tremendous-for-ie7; }
+.trump { color: blue; }
+            </code></pre>
+            <div class="fragment"><pre><code class="css" data-trim contenteditable>
+.trump.trump { color: orange; }
+.trump { color: salmon; }
+              </code></pre></div>
+              <p class="fragment">Some browsers (used to) allow you to override an ID with 256 classes or an element with 256 classes.</p>
           </section>
         </section>
 
